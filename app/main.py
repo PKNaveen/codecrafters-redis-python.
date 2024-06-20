@@ -9,7 +9,8 @@ def main():
     # Uncomment this to pass the first stage
 
     server_socket = socket.create_server(("localhost", 6379), reuse_port=True)
-    server_socket.accept() # wait for client
+    client, address = server_socket.accept()
+    client.send("Hello")
 
 
 if __name__ == "__main__":
